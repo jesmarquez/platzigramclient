@@ -23,7 +23,13 @@
   "devDependencies": {
     "ava": "^0.18.2",
     "babel-eslint": "^7.1.1",
+    "nock": "^9.0.9",
     "standard": "^9.0.1",
     "uuid-base62": "^0.1.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
   }
 }

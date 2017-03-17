@@ -3,8 +3,8 @@
 const uuid = require('uuid-base62')
 
 const fixtures = {
-  getImage () {
-    let id = uuid.uudi()
+  getPicture () {
+    let id = uuid.uuid()
     return {
       description: 'an #awesome picture with #tags #platzi',
       tags: [ 'awesome', 'tags', 'platzi' ],
