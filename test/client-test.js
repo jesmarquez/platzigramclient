@@ -43,3 +43,27 @@ test('getPicture', async t => {
 
   t.deepEqual(image, result)
 })
+
+test('savePicture', async t => {
+  const client = t.context.client
+
+  let token = 'xxx-xxx-xxx'
+  let image = fixtures.getPicture()
+
+  let newImage = {
+    src: image.src,
+    description: image.description
+  }
+
+  nock(options.endpoints.pictures, {
+    reqheaders: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+    .post('/', newImage)
+    .reply(201, image)
+
+  let result = await client.savePicture(newImage, token)
+
+  t.deepEqual(result, image)
+})
