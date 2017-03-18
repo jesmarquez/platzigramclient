@@ -20,7 +20,7 @@ const fixtures = {
   getImages (n) {
     let images = []
     while (n-- > 0) {
-      images.push(this.getImage())
+      images.push(this.getPicture())
     }
 
     return images
