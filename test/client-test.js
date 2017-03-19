@@ -117,3 +117,17 @@ test('saveUser', async t => {
 
   t.deepEqual(result, user)
 })
+
+test('getUser', async t => {
+  const client = t.context.client
+
+  let user = fixtures.getUser()
+
+  nock(options.endpoints.users)
+    .get(`/${user.username}`)
+    .reply(200, user)
+
+  let result = await client.getUser(user.username)
+
+  t.deepEqual(result, user)
+})
