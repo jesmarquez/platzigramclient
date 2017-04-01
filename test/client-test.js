@@ -98,6 +98,21 @@ test('listPictures', async t => {
   t.deepEqual(images, result)
 })
 
+test('listPicturesByTag', async t => {
+  const client = t.context.client
+
+  let images = fixtures.getImages(3)
+  let tag = 'platzi'
+
+  nock(options.endpoints.pictures)
+    .get(`/tag/${tag}`)
+    .reply(200, images)
+
+  let result = await client.listPicturesByTag(tag)
+
+  t.deepEqual(images, result)
+})
+
 test('saveUser', async t => {
   const client = t.context.client
 
