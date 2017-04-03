@@ -5,10 +5,6 @@ const platzigram = require('../')
 const fixtures = require('./fixtures')
 const nock = require('nock')
 
-test.beforeEach(t => {
-  t.context.client = platzigram.createClient(options)
-})
-
 let options = {
   endpoints: {
     pictures: 'http://platzigram.test/picture',
@@ -16,6 +12,10 @@ let options = {
     auth: 'http://platzigram.test/auth'
   }
 }
+
+test.beforeEach(t => {
+  t.context.client = platzigram.createClient(options)
+})
 
 test('client', t => {
   const client = t.context.client
